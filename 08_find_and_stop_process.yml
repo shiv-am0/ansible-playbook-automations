@@ -1,0 +1,9 @@
+---
+- name: Find and Stop a process
+  hosts: all
+
+  tasks:
+
+  - name: Find and stop the NGINX process # Task-1
+    ignore_errors: yes # Ignore error for this process, if any
+    shell: "pgrep nginx | xargs kill" # Use shell module to execute the command

@@ -1,0 +1,13 @@
+---
+- name: Download files
+  hosts: all
+
+  tasks:
+
+  - name: Download Ansible logo file # Task-1
+    get_url: # Module name
+      url: https://www.cleanpng.com/png-ansible-openshift-g2-technology-group-logo-configu-1272873/ # URL of the file to be downloaded
+      dest: /tmp # Destination path
+      owner: Sam # User owner of the file
+      group: mygroup # Group/s owner of the file
+      mode: 0777 # Permissions of the file
