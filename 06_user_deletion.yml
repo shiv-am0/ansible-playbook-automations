@@ -1,0 +1,11 @@
+---
+- name: User deletion
+  hosts: all
+
+  tasks:
+
+  - name: Deleting a user # Task-1
+    user: # Module name
+      name: Sam # Name of the user to be deleted
+      state: absent # Run the playbook until the user is absent
+      remove: yes # This will remove all the files and directories associated with the user

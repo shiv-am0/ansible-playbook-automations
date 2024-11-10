@@ -1,0 +1,15 @@
+---
+- name: User creation
+  hosts: all
+
+  tasks:
+
+  - name: Create a user # Task-1
+    user: # Module name
+      name: Sam # Name of the user
+      comment: New user Sam # Description of the user
+      shell: /bin/bash # Default shell for the user
+      group: mygroup # Group for the user (Make sure the group is present on the managed node)
+
+      # To add user to multiple groups, use 'groups' and provide comma-separated values
+      # Default home directory is '/home/<name>' but you can specify a different home directory using 'home' 

@@ -1,0 +1,22 @@
+---
+- name: Using files module
+  hosts: all
+
+  tasks:
+
+    - name: Creating a file # Task-1
+      file: # Module name
+        path: /tmp/newfile.txt # Name of the file
+        state: touch # Use "touch" state to create a file
+        owner: vagrant # Owner of the file on managed node
+        group: vagrant # Group of the file on managed node
+        mode: u=rwx,g=rw,o=r # Permissions of the file on managed node
+
+    - name: Creating a directory # Task-2
+      file: # Module name
+        path: /tmp/mydir # Name of the directory
+        state: directory # Use "directory" state to create a directory
+
+    # Use "absent" state to delete a file/directory
+    # You can change the permissions of an existing file by providing its path as on managed node
+

@@ -1,0 +1,12 @@
+---
+- name: Uninstall package
+  hosts: all
+  become: yes # Set this to true to become a root user
+
+  tasks: 
+
+  - name: Uninstall snapd # Task-1
+    yum: # Module name
+      name: snapd # Package name
+      state: absent # Run the playbook until the package is in absent state
+

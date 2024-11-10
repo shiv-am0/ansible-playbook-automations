@@ -1,0 +1,14 @@
+---
+- name: Copying files from server
+  hosts: all
+
+  tasks:
+
+  - name: Copying a file # Task-1
+    copy: # Module name
+      src: /root/my-ubuntu-file.txt # Source path on control node
+      dest: /tmp/ # Destination path on managed node
+      owner: vagrant # File owner on managed node
+      group: vagrant # File group on managed node
+      mode: ugo=rw # Permissions of the file (can be of number format as well)
+      backup: true # Set this to true if you want to have backup of file when contents change
