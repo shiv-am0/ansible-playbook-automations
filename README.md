@@ -1,6 +1,6 @@
 # Ansible Playbooks Collection
 
-This repository contains a collection of Ansible playbooks to automate basic server administration tasks. These playbooks cover tasks such as installing/uninstalling packages, creating/deleting files, and managing users. This repository serves as a learning resource for beginners in Ansible and will be updated regularly with more playbooks.
+This repository contains a collection of Ansible playbooks to automate basic server administration tasks. These playbooks cover tasks such as installing/uninstalling packages, creating/deleting files, and managing users. As my learning progresses, I’ll continue adding more playbooks covering more use-cases.
 
 ## Table of Contents
 - [About the Repository](#about-the-repository)
