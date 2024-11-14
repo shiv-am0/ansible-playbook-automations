@@ -2,15 +2,18 @@
 - name: Install a package
   hosts: all
 
+  vars: # Using ansible variables
+    app: httpd # Variable name: app, value: snapd 
+
   tasks:
 
-  - name: Install snapd # Task-1
+  - name: Install package # Task-1
     yum: # Module name
-      name: snapd # Name of the package to be installed
+      name: "{{ app }}" # Name of the package to be installed
       state: present # Run the playbook until the package is in present state
   
-  - name: Start snapd service # Task-2
+  - name: Start package service # Task-2
     service: # Module name
-      name: snapd # Name of the service to be started
+      name: "{{ app }}" # Name of the service to be started
       state: started # Run the playbook until the service is in started state
       enabled: true # Set this to true to enable the service   

@@ -1,0 +1,19 @@
+---
+- name: Firewall changes
+  hosts: all
+
+  tasks:
+
+  - name: Enable a service in firewalld # Task-1
+    firewalld: # Module name
+      # Since, nginx is not pre-defined in firewalld's list of services, we will use 'port' to define the port/protocol used by nginx.
+      # service: nginx # Name of the service to be managed by firewalld
+      port: 80/tcp # Open port 80 for tcp
+      permanent: true # Indicated whether the changes will be permanent or not
+      state: enabled # State of the service in firewalld
+
+  # Reload the firewalld service for the changes to take effect
+  - name: Reload firewalld # Task-2
+    service: # Module name
+      name: firewalld # Name of the service
+      state: reloaded # Reload the service

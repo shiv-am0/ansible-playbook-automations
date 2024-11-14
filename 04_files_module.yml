@@ -11,11 +11,15 @@
         owner: vagrant # Owner of the file on managed node
         group: vagrant # Group of the file on managed node
         mode: u=rwx,g=rw,o=r # Permissions of the file on managed node
+      tags: touch-file # Use '-t touch-file' to run only this task
 
     - name: Creating a directory # Task-2
       file: # Module name
         path: /tmp/mydir # Name of the directory
         state: directory # Use "directory" state to create a directory
+      tags: touch-dir # Use '-t touch-dir' to run only this task
+
+    # You can also use '--skip-tags <tag-name>' to skip specific tasks
 
     # Use "absent" state to delete a file/directory
     # You can change the permissions of an existing file by providing its path as on managed node
