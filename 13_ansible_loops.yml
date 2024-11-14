@@ -1,0 +1,19 @@
+# Ansible loops can be used to loop over a task for defined iterations.
+# You can use 'loop' parameter to define a list of items.
+# To iterate over the list of items, provide value as "{{ item }}", which will iterate through all the items defined in 'loop'.
+
+---
+# Suppose, a company has hired many interns; we can use a single task to create user accounts for all of them using loops
+- name: Using loops to create a list of users
+  hosts: all
+  
+  tasks:
+    - name: User creation
+      user:
+        name: "{{ item }}"
+        comment: adding new user...
+        shell: /bin/bash
+      loop:
+        - Tylor
+        - George
+        - Lydia

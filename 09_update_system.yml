@@ -1,0 +1,16 @@
+# This playbook is used to update system packages
+
+---
+- name: Update System Packages
+  hosts: all
+  become: yes # Become root user
+
+  tasks:
+
+    - name: Update all packages on Debian-based systems # Task-1
+      shell: "apt-get update && apt-get upgrade -y" # Using shell module
+      when: ansible_os_family == "Debian" # Condition check
+
+    - name: Update all packages on Red Hat-based systems # Task-2
+      shell: "yum update -y" # Using shell module
+      when: ansible_os_family == "RedHat"  # Condition check

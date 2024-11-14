@@ -1,0 +1,23 @@
+# In some use-cases, we need to run tasks based on the certain conditions.
+# We can use 'when' parameter to define a condition.
+
+---
+- name: Installing Apache2 on different OS
+  hosts: all
+
+  tasks:
+
+    - name: Install httpd on RedHat # Task-1
+      yum: # Module name
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat" # Execute Task-1 when OS is of RedHat family
+
+    - name: Install apache2 on Ubuntu # Task-2
+      apt: # Module name
+        name: apache2
+        state: present
+      when: ansible_os_family == "Ubuntu" # Execute Task-2 when OS is of Ubuntu family
+
+# To get the details of ansible built-in variables, use the following command:-
+# ansible <server> -m setup

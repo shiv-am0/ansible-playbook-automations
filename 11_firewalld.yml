@@ -11,8 +11,11 @@
       port: 80/tcp # Open port 80 for tcp
       permanent: true # Indicated whether the changes will be permanent or not
       state: enabled # State of the service in firewalld
+    notify: # Trigger the handler when this task changes anything
+      - Reload firewalld # Name of the handler to be triggerred
 
-  # Reload the firewalld service for the changes to take effect
+  # Handlers are used to trigger the tasks based on any event
+  handlers: # Execute Task-2 when Task-1 changes anything
   - name: Reload firewalld # Task-2
     service: # Module name
       name: firewalld # Name of the service

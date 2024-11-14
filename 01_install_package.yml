@@ -3,7 +3,7 @@
   hosts: all
 
   vars: # Using ansible variables
-    app: httpd # Variable name: app, value: snapd 
+    app: httpd # Variable name: app, value: httpd
 
   tasks:
 
